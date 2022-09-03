@@ -7,13 +7,19 @@ import (
 
 // GetNewAccessToken method for create a new access token.
 // @Description Create a new access token.
-// @Summary create a new access token
-// @Tags Token
-// @Accept json
-// @Produce json
-// @Success 200 {string} status "ok"
-// @Router /v1/token/new [get]
+// @Summary     create a new access token
+// @Tags        Token
+// @Accept      json
+// @Produce     json
+// @Param       username body string true "Username"
+// @Param       password body string true "Password"
+// @Success     200 {string} status "ok"
+// @Router      /api/v1/token/new [post]
 func GetNewAccessToken(c *fiber.Ctx) error {
+	// Get username and password from request body.
+	username := c.FormValue("username")
+	password := c.FormValue("password")
+	
 	// Generate a new Access token.
 	token, err := utils.GenerateNewAccessToken()
 	if err != nil {

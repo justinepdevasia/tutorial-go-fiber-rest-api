@@ -12,12 +12,12 @@ import (
 
 // GetBooks func gets all exists books.
 // @Description Get all exists books.
-// @Summary get all exists books
-// @Tags Books
-// @Accept json
-// @Produce json
-// @Success 200 {array} models.Book
-// @Router /v1/books [get]
+// @Summary     get all exists books
+// @Tags        Books
+// @Accept      json
+// @Produce     json
+// @Success     200 {array} models.Book
+// @Router      /api/v1/books [get]
 func GetBooks(c *fiber.Ctx) error {
 	// Create database connection.
 	db, err := database.OpenDBConnection()
@@ -52,13 +52,13 @@ func GetBooks(c *fiber.Ctx) error {
 
 // GetBook func gets book by given ID or 404 error.
 // @Description Get book by given ID.
-// @Summary get book by given ID
-// @Tags Book
-// @Accept json
-// @Produce json
-// @Param id path string true "Book ID"
-// @Success 200 {object} models.Book
-// @Router /v1/book/{id} [get]
+// @Summary     get book by given ID
+// @Tags        Book
+// @Accept      json
+// @Produce     json
+// @Param       id  path     string true "Book ID"
+// @Success     200 {object} models.Book
+// @Router      /api/v1/book/{id} [get]
 func GetBook(c *fiber.Ctx) error {
 	// Catch book ID from URL.
 	id, err := uuid.Parse(c.Params("id"))
@@ -100,16 +100,16 @@ func GetBook(c *fiber.Ctx) error {
 
 // CreateBook func for creates a new book.
 // @Description Create a new book.
-// @Summary create a new book
-// @Tags Book
-// @Accept json
-// @Produce json
-// @Param title body string true "Title"
-// @Param author body string true "Author"
-// @Param book_attrs body models.BookAttrs true "Book attributes"
-// @Success 200 {object} models.Book
-// @Security ApiKeyAuth
-// @Router /v1/book [post]
+// @Summary     create a new book
+// @Tags        Book
+// @Accept      json
+// @Produce     json
+// @Param       title      body     string           true "Title"
+// @Param       author     body     string           true "Author"
+// @Param       book_attrs body     models.BookAttrs true "Book attributes"
+// @Success     200        {object} models.Book
+// @Security    ApiKeyAuth
+// @Router      /api/v1/book [post]
 func CreateBook(c *fiber.Ctx) error {
 	// Get now time.
 	now := time.Now().Unix()
@@ -194,18 +194,18 @@ func CreateBook(c *fiber.Ctx) error {
 
 // UpdateBook func for updates book by given ID.
 // @Description Update book.
-// @Summary update book
-// @Tags Book
-// @Accept json
-// @Produce json
-// @Param id body string true "Book ID"
-// @Param title body string true "Title"
-// @Param author body string true "Author"
-// @Param book_status body integer true "Book status"
-// @Param book_attrs body models.BookAttrs true "Book attributes"
-// @Success 201 {string} status "ok"
-// @Security ApiKeyAuth
-// @Router /v1/book [put]
+// @Summary     update book
+// @Tags        Book
+// @Accept      json
+// @Produce     json
+// @Param       id          body     string           true "Book ID"
+// @Param       title       body     string           true "Title"
+// @Param       author      body     string           true "Author"
+// @Param       book_status body     integer          true "Book status"
+// @Param       book_attrs  body     models.BookAttrs true "Book attributes"
+// @Success     201         {string} status           "ok"
+// @Security    ApiKeyAuth
+// @Router      /api/v1/book [put]
 func UpdateBook(c *fiber.Ctx) error {
 	// Get now time.
 	now := time.Now().Unix()
@@ -294,14 +294,14 @@ func UpdateBook(c *fiber.Ctx) error {
 
 // DeleteBook func for deletes book by given ID.
 // @Description Delete book by given ID.
-// @Summary delete book by given ID
-// @Tags Book
-// @Accept json
-// @Produce json
-// @Param id body string true "Book ID"
-// @Success 204 {string} status "ok"
-// @Security ApiKeyAuth
-// @Router /v1/book [delete]
+// @Summary     delete book by given ID
+// @Tags        Book
+// @Accept      json
+// @Produce     json
+// @Param       id  body     string true "Book ID"
+// @Success     204 {string} status "ok"
+// @Security    ApiKeyAuth
+// @Router      /api/v1/book [delete]
 func DeleteBook(c *fiber.Ctx) error {
 	// Get now time.
 	now := time.Now().Unix()

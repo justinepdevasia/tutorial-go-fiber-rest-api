@@ -24,7 +24,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/v1/book": {
+        "/api/v1/book": {
             "put": {
                 "security": [
                     {
@@ -191,7 +191,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/v1/book/{id}": {
+        "/api/v1/book/{id}": {
             "get": {
                 "description": "Get book by given ID.",
                 "consumes": [
@@ -223,7 +223,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/v1/books": {
+        "/api/v1/books": {
             "get": {
                 "description": "Get all exists books.",
                 "consumes": [
@@ -249,7 +249,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/v1/token/new": {
+        "/api/v1/token/new": {
             "get": {
                 "description": "Create a new access token.",
                 "consumes": [
@@ -343,7 +343,7 @@ const docTemplate = `{
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "",
-	BasePath:         "/api",
+	BasePath:         "",
 	Schemes:          []string{},
 	Title:            "API",
 	Description:      "This is an auto-generated API Docs.",

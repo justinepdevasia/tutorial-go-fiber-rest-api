@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  fiber:
+    build: .
+    container_name: dev-fiber
+    ports:
+      - "5000:5000"
+    networks:
+      - dev-network
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres
+    container_name: dev-postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - dev-network
+    volumes:
+      - ${HOME}/dev-postgres/data/:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+networks:
+  dev-network:
+
+

@@ -14,9 +14,8 @@
         },
         "version": "1.0"
     },
-    "basePath": "/api",
     "paths": {
-        "/v1/book": {
+        "/api/v1/book": {
             "put": {
                 "security": [
                     {
@@ -183,7 +182,7 @@
                 }
             }
         },
-        "/v1/book/{id}": {
+        "/api/v1/book/{id}": {
             "get": {
                 "description": "Get book by given ID.",
                 "consumes": [
@@ -215,7 +214,7 @@
                 }
             }
         },
-        "/v1/books": {
+        "/api/v1/books": {
             "get": {
                 "description": "Get all exists books.",
                 "consumes": [
@@ -241,7 +240,7 @@
                 }
             }
         },
-        "/v1/token/new": {
+        "/api/v1/token/new": {
             "get": {
                 "description": "Create a new access token.",
                 "consumes": [
